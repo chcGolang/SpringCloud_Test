@@ -1,7 +1,17 @@
 [TOC]
 
-# 1. 目录结构
+# SpringCloud搭建模板
 
-* `product_client,product_client2` 为商品信息的微服务
-* `order_client` 为订单信息的微服务
-* `order_client.controller.ClientController` : order_client访问product_client微服务的通讯案例(微服务之间通讯的案例)
+* SpringBoot.version:2.1.1
+* Spring-cloud.version:Greenwich.RC2
+
+# 1. 主目录结构
+* `cilent/product` :商品信息的微服务
+* `cilent/order` :订单信息的微服务
+* `eureka_server,eureka_server2` : 服务中心
+
+# 2. 微服务目录结构
+* `client` :Feign接口提供
+* `common` :公用的对象
+* `service`:业务逻辑
+
