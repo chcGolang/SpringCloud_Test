@@ -42,6 +42,12 @@
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
 
+        <!-- spring cloud stream rabbit -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

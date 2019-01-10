@@ -17,7 +17,7 @@
 * `common` :公用的对象
 * `service`:业务逻辑
 
-# 3. 统一配置服务中心
+# 3. 统一配置服务中心(Spring cloud bus)
 
 post请求 `http://127.0.0.1:8100/actuator/bus-refresh` 请求头:`Content-Type:application/json`
 
@@ -26,3 +26,7 @@ post请求 `http://127.0.0.1:8100/actuator/bus-refresh` 请求头:`Content-Type:
 可以使用git的push是的webhook
 
 如果webhook的`actuator/bus-refresh`不行,可以使用`/webhook/push`
+
+# 4. ribbitmq和Spring cloud stream
+* 实现案例在order项目中
+* 在message,collection,test包下
