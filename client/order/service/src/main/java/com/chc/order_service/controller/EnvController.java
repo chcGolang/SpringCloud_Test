@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/env")
-@RefreshScope
+@RefreshScope // @RefreshScope 实现配置和实例刷新的
 public class EnvController {
     @Value("${env}")
     private String env;
