@@ -28,17 +28,19 @@ public class HttpClientUtils
     static
     {
         // 设置请求和传输超时时间
-        requestConfig = RequestConfig.custom().setSocketTimeout(5000).setConnectTimeout(2000).build();
+        requestConfig = RequestConfig.custom().setSocketTimeout(2000).setConnectTimeout(2000).build();
     }
 
     /**
      * post请求传输json参数
      * @param url  url地址
      * @param jsonParam 参数
+     * @param timeout 超时时间(毫秒)
      * @return
      */
-    public static JSONObject httpPost(String url, JSONObject jsonParam)
+    public static JSONObject httpPost(String url, JSONObject jsonParam,int timeout)
     {
+        requestConfig = RequestConfig.custom().setSocketTimeout(timeout).setConnectTimeout(timeout).build();
         // post请求返回结果
         CloseableHttpClient httpClient = HttpClients.createDefault();
         JSONObject jsonResult = null;

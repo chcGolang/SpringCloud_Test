@@ -23,7 +23,7 @@ public class WebhookController {
     @PostMapping(value = "/push",consumes="application/json")
     public String webhook(){
         String url = String.format("http://127.0.0.1:%d/actuator/bus-refresh", port);
-        JSONObject jsonObject = HttpClientUtils.httpPost(url, new JSONObject());
+        JSONObject jsonObject = HttpClientUtils.httpPost(url, new JSONObject(),1000*30);
         return jsonObject.toJSONString();
     }
 }
