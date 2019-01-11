@@ -17,6 +17,6 @@ zuul:
     # order-client: /order/**
   # 指定接口,不提供给外部访问
   ignored-patterns:
-    - /**/product/listForOrder
+  #  - /**/product/listForOrder
   # 指定禁止外部访问的微服务
   ignored-services:
