@@ -13,8 +13,8 @@ zuul:
       serviceId: product
       # 关闭请求头的过滤
       sensitiveHeaders:
-  # 将/order-client/** 重定向 /order/**
-  order-client: /order/**
+    # 将/order-client/** 重定向 /order/**
+    order-client: /order/**
   # 指定接口,不提供给外部访问
   ignored-patterns:
     - /**/product/listForOrder
