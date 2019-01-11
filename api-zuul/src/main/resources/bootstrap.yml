@@ -1,0 +1,30 @@
+
+spring:
+  application:
+    # 设置服务名称
+    name: zuul
+  cloud:
+    config:
+      discovery:
+        # 开启使用统一配置的方式加载配置信息
+        enabled: true
+        # 统一配置中心的服务Id
+        service-id: CONFIG-SERVICE
+        # 读取配置文件:zuul-dev.properties 或 zuul-dev.yml
+      profile: dev
+
+eureka:
+  client:
+    # 注册到服务中心
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+
+
+
+
+
+
+
+
+
+
