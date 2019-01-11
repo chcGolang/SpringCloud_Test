@@ -1,0 +1,15 @@
+zuul:
+  routes:
+    # 将/product/** 重定向 /myProduct/**
+    product:
+      path: /myProduct/**
+      serviceId: product
+      # 关闭请求头的过滤
+      sensitiveHeaders:
+    # 将/order-client/** 重定向 /order/**
+    order-client: /order/**
+  # 指定接口,不提供给外部访问
+  ignored-patterns:
+    - /**/product/listForOrder
+  # 指定禁止外部访问的微服务
+  ignored-services:
