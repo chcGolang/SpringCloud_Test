@@ -1,6 +1,7 @@
 package com.chc.product_service.service.impl;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.chc.product_service.dataobject.ProductInfo;
 import com.chc.product_service.enums.ProductStatusEnum;
 import com.chc.product_service.enums.ResultEnum;
@@ -9,6 +10,7 @@ import com.chc.product_service.repository.ProductInfoRepository;
 import com.chc.product_service.service.ProductService;
 import common.DecreaseStockInput;
 import common.ProductInfoOutput;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,17 +54,20 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
+    @Autowired
+    AmqpTemplate amqpTemplate;
+
     @Override
     public void decreaseStock(List<DecreaseStockInput> decreaseStockInputList) {
         List<ProductInfo> productInfoList = decreaseStockProcess(decreaseStockInputList);
 
         //发送mq消息
-        /*List<ProductInfoOutput> productInfoOutputList = productInfoList.stream().map(e -> {
+        List<ProductInfoOutput> productInfoOutputList = productInfoList.stream().map(e -> {
             ProductInfoOutput output = new ProductInfoOutput();
             BeanUtils.copyProperties(e, output);
             return output;
         }).collect(Collectors.toList());
-        amqpTemplate.convertAndSend("productInfo", JsonUtil.toJson(productInfoOutputList));*/
+        amqpTemplate.convertAndSend("productInfo", JSONObject.toJSONString(productInfoOutputList));
 
     }
 

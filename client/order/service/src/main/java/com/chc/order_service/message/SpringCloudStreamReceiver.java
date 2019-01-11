@@ -3,6 +3,7 @@ package com.chc.order_service.message;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,7 +16,21 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class SpringCloudStreamReceiver {
     @StreamListener(SpringCloudSteamClient.OUTPUT)
-    public void process(Object message){
-        log.info("SpringCloudStreamReceiver.process:{}",message.toString());
+    @SendTo(SpringCloudSteamClient.INPUT) //回收消息
+    public String process(String message){
+        log.info("SpringCloudStreamReceiver.process:{}",message);
+
+        return "received";
     }
+
+    /**
+     * 接收回送的消息
+     * @param message
+     */
+    @StreamListener(SpringCloudSteamClient.INPUT)
+    public void processInput(String message){
+
+        log.info("SpringCloudStreamReceiver.processInput:{}",message);
+    }
+
 }

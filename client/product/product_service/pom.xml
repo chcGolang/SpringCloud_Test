@@ -49,6 +49,11 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
         <!-- springcloud bus -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

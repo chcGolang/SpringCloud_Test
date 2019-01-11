@@ -15,10 +15,10 @@ public interface SpringCloudSteamClient {
     public static String INPUT = "myMessageInput";
 
 
-    @Input("myMessageInput")
+    @Input(INPUT)
     SubscribableChannel input();
 
-    @Output("myMessageOutPut")
+    @Output(OUTPUT)
     MessageChannel output();
 
 }
