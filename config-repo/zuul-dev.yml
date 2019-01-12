@@ -4,6 +4,9 @@ spring:
     addresses: 192.168.50.115:5672
     username: user
     password: password
+  redis:
+    host: 192.168.50.115
+    port: 6379
 
 zuul:
   # 排除所有的敏感头
