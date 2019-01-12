@@ -6,15 +6,14 @@ spring:
     password: password
 
 zuul:
+  # 排除所有的敏感头
+  sensitive-headers: 
   routes:
     # 将/product/** 重定向 /myProduct/**
     product:
       path: /myProduct/**
       serviceId: product
       # 关闭请求头的过滤
-      sensitiveHeaders:
-    user:
-      serviceId: user
       sensitiveHeaders:
     # 将/order-client/** 重定向 /order/**
     order-client: /order/**
