@@ -1,23 +1,31 @@
 package com.chc.api_zuul.filter;
 
+import com.chc.api_zuul.constant.RedisConstant;
+import com.chc.api_zuul.utils.CookieUtlit;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
-
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * token参数校验
+ * 卖家端的权限控制
  * @author chc
  * @create 2019-01-11 17:17
  **/
 @Component
-public class TokerFilter extends ZuulFilter {
+public class AuthSellerFilter extends ZuulFilter {
+
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+
     /**
      * 指定拦截类型(参数拦截)
      * @return
@@ -39,7 +47,12 @@ public class TokerFilter extends ZuulFilter {
 
     @Override
     public boolean shouldFilter() {
-        return true;
+        RequestContext requestContext = RequestContext.getCurrentContext();
+        HttpServletRequest request = requestContext.getRequest();
+        if("/order/order/finish".equals(request.getRequestURI())){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -52,16 +65,15 @@ public class TokerFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
-        String method = request.getMethod();
-        if(!method.equals("GET")){
-            return null;
+
+
+        Cookie cookie = CookieUtlit.get(request, "token");
+        if(cookie == null || StringUtils.isEmpty(cookie.getValue())
+                || StringUtils.isEmpty(stringRedisTemplate.opsForValue().get(String.format(RedisConstant.TOKEN_TIMELAMP,cookie.getValue())))){
+            requestContext.setSendZuulResponse(false);
+            requestContext.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED);
         }
-        String token = request.getParameter("token");
-        if(StringUtils.isEmpty(token)){
-            // 请求不通过
-            //requestContext.setSendZuulResponse(false);
-            //requestContext.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED);
-        }
+
 
         return null;
     }

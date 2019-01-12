@@ -9,6 +9,8 @@ import com.chc.order_service.dto.CartDTO;
 import com.chc.order_service.dto.OrderDTO;
 import com.chc.order_service.enums.OrderStatusEnum;
 import com.chc.order_service.enums.PayStatusEnum;
+import com.chc.order_service.enums.ResultEnum;
+import com.chc.order_service.exception.OrderException;
 import com.chc.order_service.repository.OrderDetailRepository;
 import com.chc.order_service.repository.OrderMasterRepository;
 import com.chc.order_service.service.OrderService;
@@ -19,10 +21,12 @@ import common.ProductInfoOutput;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -80,6 +84,30 @@ public class OrderServiceImpl implements OrderService {
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
         orderMasterRepository.save(orderMaster);
+        return orderDTO;
+    }
+
+    @Override
+    public OrderDTO finish(String orderId) {
+        Optional<OrderMaster> orderMaster = orderMasterRepository.findById(orderId);
+        if(!orderMaster.isPresent()){
+            throw new OrderException(ResultEnum.ORDER_NOT_EXIST);
+        }
+        OrderMaster master = orderMaster.get();
+        if(OrderStatusEnum.NEW.getCode() != master.getOrderStatus()){
+            throw new OrderException(ResultEnum.ORDER_STATUS_ERROR);
+        }
+        master.setOrderStatus(OrderStatusEnum.FINISHED.getCode());
+        orderMasterRepository.save(master);
+
+        List<OrderDetail> orderDetails = orderDetailRepository.findByOrderId(orderId);
+        if(CollectionUtils.isEmpty(orderDetails)){
+            throw new  OrderException(ResultEnum.ORDER_DETAIL_NOT_EXIST);
+        }
+
+        OrderDTO orderDTO = new OrderDTO();
+        BeanUtils.copyProperties(master,orderDTO);
+        orderDTO.setOrderDetailList(orderDetails);
         return orderDTO;
     }
 }

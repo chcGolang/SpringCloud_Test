@@ -11,6 +11,7 @@
 * `eureka_server,eureka_server2` : 服务中心
 * `config-service`:统一配置中心服务
 * `config-repo`: 微服务配置文件
+* `api-zuul`: 网关服务
 
 # 2. 微服务目录结构
 * `client` :Feign接口提供
