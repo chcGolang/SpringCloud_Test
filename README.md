@@ -12,6 +12,7 @@
 * `config-service`:统一配置中心服务
 * `config-repo`: 微服务配置文件
 * `api-zuul`: 网关服务
+* `user`:用户服务
 
 # 2. 微服务目录结构
 * `client` :Feign接口提供
@@ -30,3 +31,8 @@
 # 4. ribbitmq和Spring cloud stream
 * 实现案例在order项目中
 * 在message,collection,test包下
+
+# 5. spring cloud zuul
+
+* 加入了跨域,买家和卖家权限控制
+* 解决敏感头cookie的问题
