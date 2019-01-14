@@ -41,3 +41,8 @@
 * 案例:cilent/order HystrixController和config-repo.order-dev.properties
 * feign使用hystrix案例:在order和product/product_client中
 * 单例版的hystrix监控:`http://127.0.0.1:8082/actuator/hystrix.stream`
+* 集群版的hystrix监控:`https://www.cnblogs.com/duanxz/p/7525753.html`
+
+# 7. spring cloud sleuth
+* 视图工具:[https://zipkin.io/](https://zipkin.io/ "Zipkin")
+* zipkin的案例在:order中

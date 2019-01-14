@@ -79,12 +79,12 @@ public class HystrixController {
         throw new HystrixBadRequestException("不触发fallback的异常");
         throw new RuntimeException("触发fallback的异常");*/
 
-        try {
+       /* try {
             // 请求超时的案例
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
 
         return result;
     }

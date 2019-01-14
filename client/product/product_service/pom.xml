@@ -65,6 +65,12 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!-- 服务追踪视图 包含sleuth和zipkin -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>com.chc</groupId>
