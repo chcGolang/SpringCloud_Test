@@ -1,6 +1,7 @@
 package com.chc.order_service.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.chc.order_service.dataobject.ProductInfo;
 import com.chc.order_service.dto.CartDTO;
 import com.chc.product_client.cilent.ProductFeignClient;
@@ -82,7 +83,7 @@ public class ClientController {
         List<ProductInfoOutput> productInfos = productFeignClient.listForOrder(Arrays.asList("157875196366160022", "157875227953464068", "164103465734242707"));
 
         log.info("response{}",productInfos);
-        return "ok";
+        return JSONObject.toJSONString(productInfos);
     }
 
     @GetMapping("/productDecreaseStock")

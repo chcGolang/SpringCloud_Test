@@ -1,5 +1,6 @@
 package com.chc.product_client.cilent;
 
+import com.chc.product_client.cilent.hystrix.ProductFeignClientHystrix;
 import common.DecreaseStockInput;
 import common.ProductInfoOutput;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -15,7 +16,7 @@ import java.util.List;
  * @author chc
  * @create 2019-01-08 17:40
  **/
-@FeignClient(name = "product-client")
+@FeignClient(name = "product-client",fallback = ProductFeignClientHystrix.class)
 public interface ProductFeignClient {
 
     @PostMapping("/product/listForOrder")

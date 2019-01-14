@@ -36,3 +36,8 @@
 
 * 加入了跨域,买家和卖家权限控制
 * 解决敏感头cookie的问题
+
+# 6. spring cloud Hystrix
+* 案例:cilent/order HystrixController和config-repo.order-dev.properties
+* feign使用hystrix案例:在order和product/product_client中
+* 单例版的hystrix监控:`http://127.0.0.1:8082/actuator/hystrix.stream`
