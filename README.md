@@ -46,3 +46,10 @@
 # 7. spring cloud sleuth
 * 视图工具:[https://zipkin.io/](https://zipkin.io/ "Zipkin")
 * zipkin的案例在:order中
+* 事件类型
+	1. cs(client send):客户端发起请求的时间
+	2. cr(client received):客户端接收到处理完请求的时间
+	3. ss(service send):服务端处理完请求的时间
+	4. sr(service received):服务端收到调用端请求的时间
+	5. 客户端调用时间=cr-cs
+	6. 服务端处理时间=sr-ss
