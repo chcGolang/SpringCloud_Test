@@ -1,11 +1,11 @@
 spring:
   # rabbitmq消息总线连接信息
   rabbitmq:
-    addresses: 192.168.50.115:5672
+    addresses: 192.168.43.115:5672
     username: user
     password: password
   redis:
-    host: 192.168.50.115
+    host: 192.168.43.115
     port: 6379
 
 zuul:
