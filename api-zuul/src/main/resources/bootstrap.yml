@@ -17,7 +17,7 @@ eureka:
   client:
     # 注册到服务中心
     service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+      defaultZone: http://user:password@127.0.0.1:8761/eureka/,http://user:password@127.0.0.1:8762/eureka/
 
 
 

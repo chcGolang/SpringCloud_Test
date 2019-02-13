@@ -8,11 +8,13 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 //@SpringBootApplication
 //@EnableDiscoveryClient
 //@EnableCircuitBreaker
 
+@EnableScheduling //定时任务功能开启
 @SpringCloudApplication
 @EnableHystrixDashboard
 @EnableFeignClients(basePackages = "com.chc.product_client.cilent")

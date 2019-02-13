@@ -70,8 +70,8 @@ public class AuthSellerFilter extends ZuulFilter {
         Cookie cookie = CookieUtlit.get(request, "token");
         if(cookie == null || StringUtils.isEmpty(cookie.getValue())
                 || StringUtils.isEmpty(stringRedisTemplate.opsForValue().get(String.format(RedisConstant.TOKEN_TIMELAMP,cookie.getValue())))){
-            requestContext.setSendZuulResponse(false);
-            requestContext.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED);
+            /*requestContext.setSendZuulResponse(false);
+            requestContext.setResponseStatusCode(HttpStatus.SC_UNAUTHORIZED);*/
         }
 
 

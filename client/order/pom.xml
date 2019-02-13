@@ -6,6 +6,7 @@
     <modules>
         <module>common</module>
         <module>service</module>
+        <module>ticket_order_common</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -25,8 +26,16 @@
         <order-common.version>0.0.1-SNAPSHOT</order-common.version>
         <product_client.version>0.0.1-SNAPSHOT</product_client.version>
         <fastjson.version>1.2.54</fastjson.version>
+        <ticket_order.version>0.0.1-SNAPSHOT</ticket_order.version>
+        <axon.version>3.4.2</axon.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
 
     <dependencyManagement>
@@ -37,6 +46,11 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <artifactId>ticket_order_common</artifactId>
+                <groupId>com.chc</groupId>
+                <version>${ticket_order.version}</version>
             </dependency>
 
             <dependency>
@@ -55,6 +69,22 @@
                 <groupId>com.chc</groupId>
                 <artifactId>product_client</artifactId>
                 <version>${product_client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-spring-boot-starter</artifactId>
+                <version>${axon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-distributed-commandbus-springcloud</artifactId>
+                <version>${axon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-amqp</artifactId>
+                <version>${axon.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -1,0 +1,13 @@
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\constant\TicketOrderFailure.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\mq\TicketOrderPayMQConfig.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\axon\User\event\OrderPayedEvent.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\mq\TicketOrderFailureMQConfig.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\constant\TicketOrderSucceed.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\mq\TicketOrderUnLockerMQConfig.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\mq\TicketOrderFinishMQConfig.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\mq\TicketOrderMoveMQConfig.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\mq\TicketOrderPlaceMQConfig.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\axon\User\command\OrderPayCommand.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\dto\TicketOrderDTO.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\mq\TicketOrderNewMQConfig.java
+E:\java_project\SpringCloud\client\order\ticket_order_common\src\main\java\com\chc\ticket_order\axon\User\event\OrderPayFailedEvent.java

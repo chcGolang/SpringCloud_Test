@@ -11,5 +11,12 @@
 
     <artifactId>order-common</artifactId>
 
+    <dependencies>
+        <dependency>
+            <artifactId>ticket_order_common</artifactId>
+            <groupId>com.chc</groupId>
+        </dependency>
+    </dependencies>
+
 
 </project>

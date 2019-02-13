@@ -1,0 +1,13 @@
+com\chc\ticket_order\mq\TicketOrderFinishMQConfig.class
+com\chc\ticket_order\mq\TicketOrderMoveMQConfig.class
+com\chc\ticket_order\dto\TicketOrderDTO.class
+com\chc\ticket_order\mq\TicketOrderPlaceMQConfig.class
+com\chc\ticket_order\constant\TicketOrderFailure.class
+com\chc\ticket_order\mq\TicketOrderNewMQConfig.class
+com\chc\ticket_order\axon\User\command\OrderPayCommand.class
+com\chc\ticket_order\axon\User\event\OrderPayFailedEvent.class
+com\chc\ticket_order\constant\TicketOrderSucceed.class
+com\chc\ticket_order\mq\TicketOrderPayMQConfig.class
+com\chc\ticket_order\mq\TicketOrderFailureMQConfig.class
+com\chc\ticket_order\axon\User\event\OrderPayedEvent.class
+com\chc\ticket_order\mq\TicketOrderUnLockerMQConfig.class
