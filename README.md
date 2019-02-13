@@ -13,6 +13,7 @@
 * `config-repo`: 微服务配置文件
 * `api-zuul`: 网关服务
 * `user`:用户服务
+* `cilent/product/product_client`:要mvn install的自己的仓库
 
 # 2. 微服务目录结构
 * `client` :Feign接口提供
@@ -34,8 +35,9 @@
 
 # 5. spring cloud zuul
 
-* 加入了跨域,买家和卖家权限控制
-* 解决敏感头cookie的问题
+* 跨域:`com.chc.api_zuul.config.CorsConfig`
+* 买家和卖家权限控制:`com.chc.api_zuul.filter.AuthBuyerFilter`,`com.chc.api_zuul.filter.AuthSellerFilter`
+* 解决敏感头cookie的问题:`配置文件`
 
 # 6. spring cloud Hystrix
 * 案例:cilent/order HystrixController和config-repo.order-dev.properties
@@ -53,4 +55,18 @@
 	4. sr(service received):服务端收到调用端请求的时间
 	5. 客户端调用时间=cr-cs
 	6. 服务端处理时间=sr-ss
+
+# 8. 统一配置服务中心
+* spring cloud bus : 通过轻量消息代理连接各个分布的节点。管理和传播所有分布式项目中的消息，本质是利用了MQ的广播机制在分布式的系统中传播消息，目前常用的有Kafka和RabbitMQ
+
+# 9. 分布式事务
+
+## 1. 消息驱动模式
+
+* 服务调用链
+![](https://youdaoyun-chc.oss-cn-shenzhen.aliyuncs.com/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/%E6%B6%88%E6%81%AF%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%A1%88%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B.PNG)
+
+* 服务异常处理,超时处理:order服务`com.chc.order_service.message.TicketOrderMQ`
+* 请求连接order服务:`http://127.0.0.1:8082/ticketOrder/sentLockTicket`
+* 参数:`{"userId":1,"title":"ticket_test2","ticketNum":100,"amount":70}`
 
