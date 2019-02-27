@@ -29,7 +29,7 @@
 2. 刷新spring自身的配置信息,如:数据库连接信息刷新
 	* 在order,product和api-zuul的config中有相关实现方式
 
-# 4. ribbitmq和Spring cloud stream
+# 4. rabbitmq和Spring cloud stream
 * 实现案例在order项目中
 * 在message,collection,test包下
 
