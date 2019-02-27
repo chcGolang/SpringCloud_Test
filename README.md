@@ -3,7 +3,7 @@
 # SpringCloud搭建模板
 
 * SpringBoot.version:2.0.2
-* Spring-cloud.version:Finchley.SR2
+* Spring-cloud.version:Finchley.RELEASE
 
 # 1. 主目录结构
 * `cilent/product` :商品信息的微服务
