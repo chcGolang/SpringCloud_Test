@@ -38,6 +38,7 @@
 * 跨域:`com.chc.api_zuul.config.CorsConfig`
 * 买家和卖家权限控制:`com.chc.api_zuul.filter.AuthBuyerFilter`,`com.chc.api_zuul.filter.AuthSellerFilter`
 * 解决敏感头cookie的问题:`配置文件`
+* 限流:`com.chc.api_zuul.filter.RetaLiFilter`
 
 # 6. spring cloud Hystrix
 * 案例:cilent/order HystrixController和config-repo.order-dev.properties
